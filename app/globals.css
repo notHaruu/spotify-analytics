@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background-light: hsl(0 0% 100%);
+  --color-background-dark: hsl(207 95% 8%);
+  --color-text-light: #000000;
+  --color-text-dark: #ffffff;
+}
+
+:root[data-theme="light"] {
+  --color-background: var(--color-background-light);
+  --color-text: var(--color-text-light);
+}
+
+:root[data-theme="dark"] {
+  --background: var(--color-background-dark);
+  --color-text: var(--color-text-dark);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  padding: 25px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
