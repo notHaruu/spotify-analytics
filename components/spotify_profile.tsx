@@ -2,37 +2,46 @@
 
 import { authClient } from '@/auth-client';
 import { useQuery } from '@tanstack/react-query';
+import { useSettings } from "@/lib/settings";
+
+
 
 {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= top tracks =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
 
 export function TopTracks() {
+  const { settings } = useSettings();
+
   const { data: topTracks } = useQuery({
-    queryKey: ['spotify-top-tracks'],
+    queryKey: ["spotify-top-tracks", settings.spotifyTimeRange],
     queryFn: async () => {
-      const { data } = await authClient.getAccessToken({ providerId: 'spotify', });
+      const { data } = await authClient.getAccessToken({
+        providerId: "spotify",
+      });
+
       const accessToken = data?.accessToken;
+
       const res = await fetch(
-        '/api/spotify/me/top/tracks?time_range=short_term&limit=5',
+        `/api/spotify/me/top/tracks?time_range=${settings.spotifyTimeRange}&limit=5`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         }
-      ); return res.json();
+      );
+
+      return res.json();
     },
   });
 
   return (
     <div className="p-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg space-y-3">
-
-
       {topTracks?.items?.map((track: any) => (
         <a
           key={track.id}
           href={track.external_urls.spotify}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-3 p-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700 hover:scale-101 transition"
+          className="flex items-center gap-3 p-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700"
         >
           <img
             src={track.album.images?.[0]?.url}
@@ -42,12 +51,11 @@ export function TopTracks() {
           <div className="flex flex-col">
             <span className="font-medium">{track.name}</span>
             <span className="text-sm text-gray-400">
-              {track.artists.map((a: any) => a.name).join(', ')}
+              {track.artists.map((a: any) => a.name).join(", ")}
             </span>
           </div>
         </a>
       ))}
-
     </div>
   );
 }
@@ -55,8 +63,9 @@ export function TopTracks() {
 {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= top artists =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
 
 export function TopArtists() {
+  const { settings } = useSettings();
   const { data: topArtists } = useQuery({
-    queryKey: ['spotify-top-artists'],
+    queryKey: ['spotify-top-artists', settings.spotifyTimeRange],
     queryFn: async () => {
       const { data } = await authClient.getAccessToken({
         providerId: 'spotify',
@@ -65,9 +74,8 @@ export function TopArtists() {
       const accessToken = data?.accessToken;
 
       const res = await fetch(
-        '/api/spotify/me/top/artists?time_range=short_term&limit=5',
-        {
-          headers: {
+        `/api/spotify/me/top/artists?time_range=${settings.spotifyTimeRange}&limit=5`,
+        { headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         }
@@ -86,7 +94,7 @@ export function TopArtists() {
           href={artist.external_urls.spotify}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-3 p-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700 hover:scale-101 transition"
+          className="flex items-center gap-3 p-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700 hover:scale-101 theme-transition"
         >
           <img
             src={artist.images?.[0]?.url}

@@ -40,7 +40,7 @@ export default function ThemeToggle() {
       {/* slider */}
       <button
         onClick={toggleTheme}
-        className={`w-12 h-6 flex items-center rounded-full p-1 transition-colors duration-300 ${
+        className={`w-12 h-6 flex items-center rounded-full p-1 transition-colors duration-300 cursor-pointer ${
           enabled ? "bg-neutral-700" : "bg-yellow-400"
         }`}
       >
