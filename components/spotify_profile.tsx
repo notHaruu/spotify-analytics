@@ -4,29 +4,19 @@ import { authClient } from '@/auth-client';
 import { useQuery } from '@tanstack/react-query';
 import { useSettings } from "@/lib/settings";
 
-
-
-{/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= top tracks =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
+{/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= top tracks =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */ }
 
 export function TopTracks() {
-  const { settings } = useSettings();
 
+  const { settings } = useSettings();
   const { data: topTracks } = useQuery({
     queryKey: ["spotify-top-tracks", settings.spotifyTimeRange],
     queryFn: async () => {
-      const { data } = await authClient.getAccessToken({
-        providerId: "spotify",
-      });
-
+      const { data } = await authClient.getAccessToken({ providerId: "spotify" });
       const accessToken = data?.accessToken;
-
       const res = await fetch(
         `/api/spotify/me/top/tracks?time_range=${settings.spotifyTimeRange}&limit=5`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
+        { headers: { Authorization: `Bearer ${accessToken}` } }
       );
 
       return res.json();
@@ -60,7 +50,7 @@ export function TopTracks() {
   );
 }
 
-{/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= top artists =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
+{/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= top artists =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */ }
 
 export function TopArtists() {
   const { settings } = useSettings();
@@ -75,7 +65,8 @@ export function TopArtists() {
 
       const res = await fetch(
         `/api/spotify/me/top/artists?time_range=${settings.spotifyTimeRange}&limit=5`,
-        { headers: {
+        {
+          headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         }
@@ -113,7 +104,7 @@ export function TopArtists() {
   );
 }
 
-{/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= listening time =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
+{/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= listening time =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */ }
 
 export function ListeningTime() {
   const { data: recentlyPlayed } = useQuery({
@@ -121,17 +112,17 @@ export function ListeningTime() {
     queryFn: async () => {
       const { data } = await authClient.getAccessToken({ providerId: 'spotify' });
       const accessToken = data?.accessToken;
-      const res = await fetch( '/api/spotify/me/player/recently-played?limit=50',
+      const res = await fetch('/api/spotify/me/player/recently-played?limit=50',
         { headers: { Authorization: `Bearer ${accessToken}` } }
       ); return res.json();
     },
   });
 
   const listeningTime =
-  (recentlyPlayed?.items?.reduce(
-    (sum: number, item: any) => sum + item.track.duration_ms,
-    0
-  ) ?? 0) / 60000;
+    (recentlyPlayed?.items?.reduce(
+      (sum: number, item: any) => sum + item.track.duration_ms,
+      0
+    ) ?? 0) / 60000;
 
   return (
     <div className="p-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg">

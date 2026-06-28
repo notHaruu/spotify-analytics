@@ -1,3 +1,6 @@
+import { auth } from "@/auth"
+import { headers } from "next/headers"
+
 export const TEAMS = {
     developdoc: {
         name: "DevelopDoc",
@@ -13,6 +16,18 @@ export const TEAMS = {
     //   ],
     // },
 };
+
+// export function getUserTeam(userId: string) {
+//     return Object.values(TEAMS).find((team) =>
+//         team.members.includes(userId)
+//     );
+// }
+
+export const session = await auth.api.getSession({
+    headers: await headers(),
+});
+
+export const userID = session?.user?.id;
 
 export function getUserTeam(userId: string) {
     return (
