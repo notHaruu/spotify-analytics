@@ -6,7 +6,7 @@ import { Sun, Moon } from "lucide-react";
 export default function ThemeToggle() {
   const [enabled, setEnabled] = useState(false);
 
-  // 👇 load saved theme
+  // load theme
   useEffect(() => {
     const saved = localStorage.getItem("theme");
 

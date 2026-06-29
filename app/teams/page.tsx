@@ -1,23 +1,28 @@
 "use client"
 
-
-import { redirect } from "next/navigation"
-import { getUserTeam } from "@/lib/teams"
+import { getUserTeams } from "@/lib/teams"
 import { useSpotifyProfile } from "@/lib/spotify-access-token"
+import { useRouter } from "next/navigation"
 
-export default async function TeamsPage() {
+export default function TeamsPage() {
     const { data: spotifyProfile } = useSpotifyProfile();
-
-    const team = getUserTeam(spotifyProfile?.id);
-
-    if (team && team.name === "DevelopDoc") {
-        redirect("/teams/developdoc")
-    }
+    const teams = getUserTeams(spotifyProfile?.id ?? "");
+    const router = useRouter();
 
     return (
         <div className="p-10">
-            <h1 className="text-7xl pb-5 mb-10 font-bold border-b-2 border-neutral-200 dark:border-neutral-700 theme-transition">Teams</h1>    
-            <pre>{JSON.stringify(team?.name)}</pre>
+            <h1 className="text-7xl pb-5 mb-10 font-bold border-b-2 border-neutral-200 dark:border-neutral-700 theme-transition">Teams</h1>
+            <div className="flex gap-2 flex-col">
+                {teams.map((team) => (
+                    <button
+                    key={team.id}
+                    type="button"
+                    onClick={() => router.push(`/teams/${team.id}`)}
+                    className="bg-green-500 rounded-lg w-30 cursor-pointer">
+                        {team.name}
+                    </button>
+                ))}
+            </div>
         </div>
     )
 }

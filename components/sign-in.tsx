@@ -7,7 +7,7 @@ export default function SignIn() {
     <form
       onSubmit={async (event) => {
         event.preventDefault();
-       await authClient.signIn.social({provider: "spotify"})
+        await authClient.signIn.social({ provider: "spotify" })
       }}
     >
 

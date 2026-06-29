@@ -1,23 +1,23 @@
 export const TEAMS = {
     developdoc: {
+        id: "developdoc",
         name: "DevelopDoc",
         members: [
             "31qyhbozjv2reckgfngnljftoweq",
-        ],
+        ]
     },
 
-    // friends: {
-    //   name: "Friends Team",
-    //   members: [
-    //     "user_789",
-    //   ],
-    // },
+    friends: {
+        id: "friends",
+        name: "Friends",
+        members: [
+            "31qyhbozjv2reckgfngnljftoweq",
+        ]
+    }
 };
 
-export function getUserTeam(userId: string) {
-    return (
-        Object.values(TEAMS).find((userID) =>
-            TEAMS.developdoc.members.includes(userId)
-        )
-    )
+export function getUserTeams(userId: string) {
+    return Object.values(TEAMS).filter((team) =>
+        team.members.includes(userId)
+    );
 }
