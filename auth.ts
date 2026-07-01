@@ -13,7 +13,8 @@ export const auth = betterAuth({
         "user-read-recently-played",
         "playlist-read-private",
         "user-read-playback-state",
-        "playlist-read-collaborative"
+        "playlist-read-collaborative",
+        "user-read-currently-playing"
       ]
     }
   }

@@ -3,7 +3,7 @@ export const TEAMS = {
         id: "developdoc",
         name: "DevelopDoc",
         members: [
-            "31qyhbozjv2reckgfngnljftoweq",
+            "7Re86QJFjD",
         ]
     },
 
@@ -11,13 +11,13 @@ export const TEAMS = {
         id: "friends",
         name: "Friends",
         members: [
-            "31qyhbozjv2reckgfngnljftoweq",
+            "7Re86QJFjD",
         ]
     }
 };
 
-export function getUserTeams(userId: string) {
+export function getUserTeams(id: string) {
     return Object.values(TEAMS).filter((team) =>
-        team.members.includes(userId)
+        team.members.includes(id)
     );
 }

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 
 export default function TeamsPage() {
     const { data: spotifyProfile } = useSpotifyProfile();
-    const teams = getUserTeams(spotifyProfile?.id ?? "");
+    const teams = getUserTeams(spotifyProfile?.account_id ?? "");
     const router = useRouter();
 
     return (
@@ -18,7 +18,7 @@ export default function TeamsPage() {
                     key={team.id}
                     type="button"
                     onClick={() => router.push(`/teams/${team.id}`)}
-                    className="bg-green-500 rounded-lg w-30 cursor-pointer">
+                    className="bg-green-500 rounded-lg w-30 text-white font-bold p-1 cursor-pointer">
                         {team.name}
                     </button>
                 ))}

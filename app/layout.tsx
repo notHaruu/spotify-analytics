@@ -1,3 +1,5 @@
+"use client"
+
 import "./globals.css"
 import { montserrat } from "@/app/ui/fonts"
 import NavItem from "@/components/navitem"
@@ -12,12 +14,21 @@ import {
   LogIn
 } from "lucide-react"
 import { SettingsProvider } from "@/lib/settings";
+import { usePathname } from "next/navigation"
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
+  const pathName = usePathname()
+  console.log(pathName)
+
+  if (pathName === "/") {
+    
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${montserrat.className} bg-white dark:bg-neutral-900 theme-transition`}>
@@ -69,7 +80,7 @@ export default function RootLayout({
 
                       {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= footer =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
 
-                      <footer className="mt-auto pt-6 text-sm text-gray-500 border-t-2 border-neutral-200 dark:border-neutral-800 theme-transition">
+                      <footer className="mt-auto pt-6 text-sm border-t-2 text-blue-600 dark:text-blue-500 border-neutral-200 dark:border-neutral-800 theme-transition">
                         © DevelopDoc | 2026
                       </footer>
 

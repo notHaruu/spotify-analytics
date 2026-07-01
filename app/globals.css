@@ -2,13 +2,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* @theme {
-  --color-background-light: hsl(0 0% 100%);
-  --color-background-dark: hsl(207 95% 8%);
-  --color-text-light: #000000;
-  --color-text-dark: #ffffff;
+@theme {
+  --color-blue-500: oklch(0.7228 0.0876 222.16);
+  --color-blue-600: oklch(0.3741 0.0826 237.78);
 }
 
+/* 
 :root[data-theme="light"] {
   --color-background: var(--color-background-light);
   --color-text: var(--color-text-light);

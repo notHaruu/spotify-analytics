@@ -12,7 +12,7 @@ export default function SpotifyRange() {
   ] as const;
 
   return (
-    <div className="bg-neutral-200 dark:bg-neutral-800 p-4 rounded-lg space-y-2">
+    <div className="bg-neutral-200 dark:bg-neutral-800 p-4 rounded-lg space-y-2 theme-transition">
       <h2 className="text-xl font-bold mb-3">
         Spotify Time Range
       </h2>
