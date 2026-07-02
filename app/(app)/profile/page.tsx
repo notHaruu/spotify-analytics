@@ -30,7 +30,7 @@ export default async function Profile() {
         />
 
         <div className="flex flex-col pl-2">
-          <p className="text-xl">{session?.user?.name}</p>
+          <p className="text-xl text-center lg:text-left">{session?.user?.name}</p>
           <p className="text-xs text-gray-500">{session?.user?.email}</p>
         </div>
         <SignOut />

@@ -21,7 +21,7 @@ export default function MobileNav() {
                     Spotify Analytics
                 </h1>
 
-                <button onClick={() => setOpen(!open)}>
+                <button className="cursor-pointer" onClick={() => setOpen(!open)}>
                     {open ? <X /> : <Menu />}
                 </button>
             </div>
