@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { authClient } from "@/auth-client"; // or wherever your client is
+import { authClient } from "@/auth-client"
 
 export default function SignOut() {
   const handleSignOut = async () => {
     await authClient.signOut();
-    window.location.href = "/"; // redirect after logout
+    window.location.href = "/dashboard";
   };
 
   return (

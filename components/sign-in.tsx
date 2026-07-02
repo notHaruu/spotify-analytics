@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { authClient } from "@/auth-client";
+import { authClient } from "@/auth-client"
 
 export default function SignIn() {
   return (

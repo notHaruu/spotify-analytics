@@ -2,18 +2,9 @@
 
 import "@/app/globals.css"
 import { montserrat } from "@/app/(app)/ui/fonts"
-import NavItem from "@/components/navitem"
 import { ThemeProvider } from "@/components/theme-provider"
 import { QueryClientContext } from "@/components/query-client-context"
-import ThemeToggle from "@/components/theme-toggle"
-import {
-  House,
-  User,
-  Settings,
-  Users,
-  LogIn
-} from "lucide-react"
-import { SettingsProvider } from "@/lib/settings";
+import { SettingsProvider } from "@/lib/settings"
 import { usePathname } from "next/navigation"
 
 export default function AppLayout({

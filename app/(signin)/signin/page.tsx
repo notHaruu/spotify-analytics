@@ -1,5 +1,4 @@
-import SignIn from "@/components/sign-in";
-import { ThemeProvider } from "@/components/theme-provider";
+import SignIn from "@/components/sign-in"
 
 export default function HomePage() {
   return (

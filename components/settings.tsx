@@ -1,9 +1,8 @@
 "use client"
 
-import SignOut from "@/components/sign-out";
-import { ThemeProvider } from "next-themes"
-import { useSpotifyProfile } from "@/lib/spotify-access-token";
-import SpotifyIDs from "./settings/spotify-ids";
+import SignOut from "@/components/sign-out"
+import { useSpotifyProfile } from "@/lib/spotify-access-token"
+import SpotifyIDs from "./settings/spotify-ids"
 import SpotifyRange from "@/components/settings/spotify-settings"
 
 

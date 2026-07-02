@@ -1,6 +1,6 @@
-import { useSpotifyProfile } from "@/lib/spotify-access-token";
-import { useState } from "react";
-import Link from "next/link";
+import { useSpotifyProfile } from "@/lib/spotify-access-token"
+import { useState } from "react"
+import Link from "next/link"
 import { ClipboardCopy } from "lucide-react"
 
 export default function SpotifyIDs() {

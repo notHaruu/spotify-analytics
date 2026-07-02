@@ -7,17 +7,6 @@
   --color-blue-600: oklch(0.3741 0.0826 237.78);
 }
 
-/* 
-:root[data-theme="light"] {
-  --color-background: var(--color-background-light);
-  --color-text: var(--color-text-light);
-}
-
-:root[data-theme="dark"] {
-  --color-background: var(--color-background-dark);
-  --color-text: var(--color-text-dark);
-} */
-
 body {
   padding: 25px;
 }

@@ -11,10 +11,9 @@ import {
   House,
   User,
   Settings,
-  Users,
-  // LogIn
+  Users
 } from "lucide-react"
-import { SettingsProvider } from "@/lib/settings";
+import { SettingsProvider } from "@/lib/settings"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 
@@ -23,14 +22,6 @@ export default function AppLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  const pathName = usePathname()
-  console.log(pathName)
-
-  if (pathName === "/") {
-    
-  }
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${montserrat.className} bg-white dark:bg-neutral-900 theme-transition`}>
@@ -60,10 +51,6 @@ export default function AppLayout({
                         <NavItem icon={<Users />} href="/teams" label="Team (WIP)" />
                         <NavItem icon={<Settings />} href="/settings" label="Settings" />
                         <div className="border-b-2 border-neutral-200 dark:border-neutral-700"></div>
-                        {/* <div id="login" className="pt-3 pb-2 border-t-2 border-b-2 border-neutral-200 dark:border-neutral-700 text-black dark:text-white theme-transition">
-                          <NavItem icon={<LogIn />} href="/login" label="Log In (WIP)" />
-                        </div> */}
-
                         <div className="self-center pt-3 pb-2 text-black dark:text-white theme-transition">
                           <ThemeToggle />
                         </div>

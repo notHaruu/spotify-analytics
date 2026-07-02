@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import { authClient } from '@/auth-client';
-import { useQuery } from '@tanstack/react-query';
-import { useSettings } from "@/lib/settings";
+import { authClient } from '@/auth-client'
+import { useQuery } from '@tanstack/react-query'
+import { useSettings } from "@/lib/settings"
 
 {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= top tracks =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */ }
 

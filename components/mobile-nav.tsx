@@ -9,7 +9,7 @@ import {
     Settings,
     Users
 } from "lucide-react"
-import ThemeToggle from "./theme-toggle";
+import ThemeToggle from "./theme-toggle"
 
 export default function MobileNav() {
     const [open, setOpen] = useState(false);

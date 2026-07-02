@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-import { authClient } from "@/auth-client";
+import { useQuery } from "@tanstack/react-query"
+import { authClient } from "@/auth-client"
 
 {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= spotify accesstoken =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */ }
 

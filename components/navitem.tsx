@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import { motion } from "framer-motion"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { ReactNode } from "react"
 
 export default function NavItem({
   href,

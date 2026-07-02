@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { useSettings } from "@/lib/settings";
+import { useSettings } from "@/lib/settings"
 
 export default function SpotifyRange() {
   const { settings, updateSetting } = useSettings();
