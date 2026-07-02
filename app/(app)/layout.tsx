@@ -54,15 +54,15 @@ export default function AppLayout({
                         <NavItem icon={<House />} href="/dashboard" label="Dashboard (WIP)" />
                         <NavItem icon={<User />} href="/profile" label="Profile" />
                         <NavItem icon={<Users />} href="/teams" label="Team (WIP)" />
-                        <NavItem icon={<Settings />} href="/settings" label="Settings (WIP)" />
-                        <div id="login" className="pt-3 pb-2 border-t-2 border-b-2 border-neutral-200 dark:border-neutral-700 text-black dark:text-white theme-transition">
+                        <NavItem icon={<Settings />} href="/settings" label="Settings" />
+                        <div className="border-b-2 border-neutral-200 dark:border-neutral-700"></div>
+                        {/* <div id="login" className="pt-3 pb-2 border-t-2 border-b-2 border-neutral-200 dark:border-neutral-700 text-black dark:text-white theme-transition">
                           <NavItem icon={<LogIn />} href="/login" label="Log In (WIP)" />
-                        </div>
+                        </div> */}
 
                         <div className="self-center pt-3 pb-2 text-black dark:text-white theme-transition">
                           <ThemeToggle />
                         </div>
-
                       </nav>
                     </aside>
 
