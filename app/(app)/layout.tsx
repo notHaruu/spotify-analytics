@@ -3,6 +3,7 @@
 import "@/app/globals.css"
 import { montserrat } from "@/app/(app)/ui/fonts"
 import NavItem from "@/components/navitem"
+import MobileNav from "@/components/mobile-nav"
 import { ThemeProvider } from "@/components/theme-provider"
 import { QueryClientContext } from "@/components/query-client-context"
 import ThemeToggle from "@/components/theme-toggle"
@@ -11,10 +12,11 @@ import {
   User,
   Settings,
   Users,
-  LogIn
+  // LogIn
 } from "lucide-react"
 import { SettingsProvider } from "@/lib/settings";
 import { usePathname } from "next/navigation"
+import Link from "next/link"
 
 export default function AppLayout({
   children,
@@ -37,15 +39,17 @@ export default function AppLayout({
             <ThemeProvider>
               <div className="antialiased bg-white dark:bg-neutral-900 theme-transition">
 
-
-
                 <div className="min-h-screen p-3 bg-gradient-to-t from-green-500 to-lime-400 rounded-2xl">
 
-                  <div className="flex min-h-[calc(100vh-24px)] gap-3 items-stretch">
+                  <div className="flex flex-col lg:flex-row min-h-[calc(100vh-24px)] gap-3">
 
-                    {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= sidebar =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
+                    {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= mobile sidebar =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
 
-                    <aside className="w-64 shrink-0 bg-white dark:bg-neutral-900 text-white p-4 rounded-xl shadow-lg theme-transition">
+                    <MobileNav />
+
+                    {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= desktop sidebar =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
+
+                    <aside className="hidden lg:block w-full lg:w-64 shrink-0 bg-white dark:bg-neutral-900 text-white p-4 rounded-xl shadow-lg theme-transition">
                       <h2 className="text-4xl font-bold mb-5 pb-5 border-b-2 border-neutral-200 dark:border-neutral-700 text-black dark:text-white theme-transition">
                         Spotify Analytics
                       </h2>
@@ -68,7 +72,7 @@ export default function AppLayout({
 
                     {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= main content =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
 
-                    <main className="flex-1 min-w-0 bg-white text-black dark:text-white bg-neutral-200 dark:bg-neutral-900 p-6 rounded-xl shadow-lg flex flex-col overflow-hidden theme-transition">
+                    <main className="flex-1 min-w-0 bg-white text-black dark:text-white bg-neutral-200 dark:bg-neutral-900 p-1 md:p-6 rounded-xl shadow-lg flex flex-col overflow-hidden theme-transition">
 
                       <div className="w-full max-w-full min-w-0 theme-transition">
 
@@ -81,7 +85,7 @@ export default function AppLayout({
                       {/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= footer =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */}
 
                       <footer className="mt-auto pt-6 text-sm border-t-2 text-blue-600 dark:text-blue-500 border-neutral-200 dark:border-neutral-800 theme-transition">
-                        © DevelopDoc | 2026
+                        (©) Malek Zaid 2026 | <Link href={"/legal"}>Impressum</Link>
                       </footer>
 
                     </main>

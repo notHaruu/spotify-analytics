@@ -35,7 +35,7 @@ export function TopTracks() {
         >
           <img
             src={track.album.images?.[0]?.url}
-            className="w-12 h-12 rounded"
+            className="w-10 h-10 md:w-12 md:h-12 rounded"
           />
 
           <div className="flex flex-col">
@@ -89,7 +89,7 @@ export function TopArtists() {
         >
           <img
             src={artist.images?.[0]?.url}
-            className="w-12 h-12 rounded-full"
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full"
           />
 
           <div className="flex flex-col">

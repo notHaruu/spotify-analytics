@@ -9,14 +9,14 @@ export default function HomePage() {
         <div className="pt-7 flex justify-center scale-150">
           <SignIn />
         </div>
-        <div className="flex flex-col items-center justify-center pt-30">
+        {/* <div className="flex flex-col items-center justify-center pt-30">
           <h2 className="text-2xl text-neutral-700">Powered by</h2>
           <Image
             src="/developdoc.png"
             alt="Spotify" width={400}
             height={400}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   )
