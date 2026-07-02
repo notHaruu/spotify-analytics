@@ -41,7 +41,7 @@ export default async function Profile() {
         Your Top Tracks
       </h2>
 
-      <div className="pb-10 dark:text-white theme-transition">
+      <div className="pb-10 text-black dark:text-white">
         <TopTracks />
       </div>
 
@@ -49,7 +49,7 @@ export default async function Profile() {
         Your Top Artists
       </h2>
 
-      <div className="pb-10 dark:text-white theme-transition">
+      <div className="pb-10 text-black dark:text-white">
         <TopArtists />
       </div>
 
@@ -57,7 +57,7 @@ export default async function Profile() {
         Your Listening Time
       </h2>
 
-      <div className="pb-10 dark:text-white theme-transition">
+      <div className="pb-10 text-black dark:text-white">
         <ListeningTime />
       </div>
 

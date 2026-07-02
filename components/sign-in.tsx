@@ -12,7 +12,7 @@ export default function SignIn() {
     >
 
       <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded-lg
-               transition-transform duration-200 ease-in-out text-size
+               transition-transform duration-200 ease-in-out text-size cursor-pointer
                hover:scale-105
                active:scale-95 hover:shadow-lg transition-all">Sign in with Spotify</button>
     </form>

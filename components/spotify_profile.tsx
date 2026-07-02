@@ -24,7 +24,7 @@ export function TopTracks() {
   });
 
   return (
-    <div className="p-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg space-y-3">
+    <div className="p-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg space-y-3 theme-transition">
       {topTracks?.items?.map((track: any) => (
         <a
           key={track.id}
@@ -77,7 +77,7 @@ export function TopArtists() {
   });
 
   return (
-    <div className="p-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg space-y-3">
+    <div className="p-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg space-y-3 theme-transition">
 
       {topArtists?.items?.map((artist: any) => (
         <a
@@ -85,7 +85,7 @@ export function TopArtists() {
           href={artist.external_urls.spotify}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-3 p-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700 hover:scale-101 theme-transition"
+          className="flex items-center gap-3 p-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700 hover:scale-101"
         >
           <img
             src={artist.images?.[0]?.url}
@@ -125,7 +125,7 @@ export function ListeningTime() {
     ) ?? 0) / 60000;
 
   return (
-    <div className="p-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg">
+    <div className="p-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg theme-transition">
       <h2 className="text-lg font-semibold">
         Recent Listening Time
       </h2>
