@@ -10,6 +10,7 @@ import {
     Settings,
     Users
 } from "lucide-react"
+import ThemeToggle from "./theme-toggle";
 
 export default function MobileNav() {
     const [open, setOpen] = useState(false);
@@ -33,6 +34,8 @@ export default function MobileNav() {
                         <NavItem icon={<User />} href="/profile" label="Profile" />
                         <NavItem icon={<Users />} href="/teams" label="Team (WIP)" />
                         <NavItem icon={<Settings />} href="/settings" label="Settings" />
+                        <div className="flex justify-center"><ThemeToggle /></div>
+                        
                     </nav>
                 </div>
             )}
