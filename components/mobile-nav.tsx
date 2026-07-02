@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import NavItem from "@/components/navitem"
 import {
@@ -17,7 +16,7 @@ export default function MobileNav() {
 
     return (
         <>
-            <div className="lg:hidden flex items-center justify-between p-4 bg-white dark:bg-neutral-900 rounded-xl">
+            <div className="lg:hidden text-black dark:text-white flex items-center justify-between p-4 bg-white dark:bg-neutral-900 rounded-xl theme-transition">
                 <h1 className="font-bold text-xl">
                     Spotify Analytics
                 </h1>
@@ -28,7 +27,7 @@ export default function MobileNav() {
             </div>
 
             {open && (
-                <div className="lg:hidden bg-white dark:bg-neutral-900 rounded-xl p-4">
+                <div className="p-4 lg:hidden text-black dark:text-white bg-white dark:bg-neutral-900 rounded-xl theme-transition">
                     <nav className="flex flex-col gap-3">
                         <NavItem icon={<House />} href="/dashboard" label="Dashboard (WIP)" />
                         <NavItem icon={<User />} href="/profile" label="Profile" />

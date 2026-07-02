@@ -9,6 +9,6 @@ export default function SignOut() {
   };
 
   return (
-    <button onClick={handleSignOut} className="bg-red-500 text-white ml-3 px-5 py-1 rounded-full hover:scale-105 hover:cursor-pointer">Sign out</button>
+    <button onClick={handleSignOut} className="bg-red-500 text-white ml-3 px-5 py-1 rounded-full transition-transform duration-200 ease-in-out text-size cursor-pointer hover:scale-105 active:scale-95 hover:shadow-lg transition-all">Sign out</button>
   );
 }
