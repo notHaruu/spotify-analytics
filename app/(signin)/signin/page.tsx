@@ -1,5 +1,4 @@
 import SignIn from "@/components/sign-in";
-import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -9,14 +8,6 @@ export default function HomePage() {
         <div className="pt-7 flex justify-center scale-120 lg:scale-150">
           <SignIn />
         </div>
-        {/* <div className="flex flex-col items-center justify-center pt-30">
-          <h2 className="text-2xl text-neutral-700">Powered by</h2>
-          <Image
-            src="/developdoc.png"
-            alt="Spotify" width={400}
-            height={400}
-          />
-        </div> */}
       </div>
     </div>
   )
