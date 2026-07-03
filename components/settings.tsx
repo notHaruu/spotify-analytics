@@ -24,9 +24,7 @@ function SpotifySettings() {
     return (
         <div>
             <h2 className="mb-5 text-5xl text-black dark:text-white theme-transition">Spotify</h2> {/* name, email, pfp, time range options */}
-
-            <pre>{JSON.stringify(profile, null, 2)}</pre>
-
+            
             {/* profile information (picture, name, email, sign out) */}
             <div className="flex items-center gap-3 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg p-5 mb-5 theme-transition">
                 <img

@@ -5,7 +5,7 @@ import { authClient } from "@/auth-client"
 export default function SignOut() {
   const handleSignOut = async () => {
     await authClient.signOut();
-    window.location.href = "/dashboard";
+    window.location.href = "/";
   };
 
   return (

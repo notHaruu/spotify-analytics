@@ -1,21 +1,15 @@
-import { auth } from "@/auth"
-import { headers } from "next/headers"
+"use client"
+
 import SignOut from "@/components/sign-out"
-import { redirect } from "next/navigation"
+import { useSpotifyProfile } from "@/lib/spotify-access-token"
 import {
   TopTracks,
   TopArtists,
   ListeningTime
 } from "@/components/spotify_profile"
 
-export default async function Profile() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-
-  if (!session?.user) {
-    redirect("/");
-  }
+export default function Profile() {
+  const { data: profile } = useSpotifyProfile();
 
   return (
     <div className="p-4 md:p-10">
@@ -24,14 +18,15 @@ export default async function Profile() {
       <h2 className="mb-5 text-2xl md:text-3xl lg:text-5xl text-black dark:text-white">Account</h2>
       <div className="flex flex-col md:flex-row items-center gap-3 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg p-5 mb-10 theme-transition">
         <img
-          src={session?.user?.image ?? ""}
-          alt={session?.user?.name ?? "User avatar"}
-          className="rounded-full w-20 h-20"
+          src={profile?.images[0]?.url ?? null}
+          alt={profile?.display_name ?? "User avatar"}
+          className="rounded-full"
+          width={100}
         />
 
         <div className="flex flex-col pl-2">
-          <p className="text-xl text-center lg:text-left">{session?.user?.name}</p>
-          <p className="text-xs text-gray-500">{session?.user?.email}</p>
+          <p className="text-xl text-center lg:text-left">{profile?.display_name}</p>
+          <p className="text-xs text-gray-500">{profile?.email}</p>
         </div>
         <SignOut />
       </div>

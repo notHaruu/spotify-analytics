@@ -1,6 +1,6 @@
 import SignIn from "@/components/sign-in"
 
-export default function HomePage() {
+export default function SignInPage() {
   return (
     <div className="p-5 bg-white dark:bg-neutral-900 theme-transition">
       <div className="p-4 lg:p-20">

@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { authClient } from '@/auth-client'
 import { useQuery } from '@tanstack/react-query'
@@ -139,4 +139,50 @@ export function ListeningTime() {
       </p>
     </div>
   )
+}
+
+{/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= top tracks =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */ }
+
+export function TopGenres() {
+
+  const { settings } = useSettings();
+  const { data: topTracks } = useQuery({
+    queryKey: ["spotify-top-genres", settings.spotifyTimeRange],
+    queryFn: async () => {
+      const { data } = await authClient.getAccessToken({ providerId: "spotify" });
+      const accessToken = data?.accessToken;
+      const res = await fetch(
+        `/api/spotify/me/top/tracks?time_range=${settings.spotifyTimeRange}&limit=50`,
+        { headers: { Authorization: `Bearer ${accessToken}` } }
+      );
+
+      return res.json();
+    },
+  });
+
+  return (
+    <div className="p-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg space-y-3 theme-transition">
+      {topTracks?.items?.map((track: any) => (
+        <a
+          key={track.id}
+          href={track.external_urls.spotify}
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center gap-3 p-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700"
+        >
+          <img
+            src={track.album.images?.[0]?.url}
+            className="w-10 h-10 md:w-12 md:h-12 rounded"
+          />
+
+          <div className="flex flex-col">
+            <span className="font-medium">{track.name}</span>
+            <span className="text-sm text-gray-400">
+              {track.artists.map((a: any) => a.name).join(", ")}
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  );
 }
