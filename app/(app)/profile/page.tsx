@@ -12,10 +12,11 @@ export default function Profile() {
   const { data: profile } = useSpotifyProfile();
 
   return (
-    <div className="p-4 md:p-10">
+    <div className="p-3 md:p-5">
       <h1 className="pb-5 mb-10 dark:text-white text-4xl md:text-5xl lg:text-7xl font-bold border-b-2 border-neutral-200 dark:border-neutral-700 theme-transition">Profile</h1>
 
       <h2 className="mb-5 text-2xl md:text-3xl lg:text-5xl text-black dark:text-white">Account</h2>
+      <pre>{JSON.stringify(profile, null, 2)}</pre>
       <div className="flex flex-col md:flex-row items-center gap-3 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg p-5 mb-10 theme-transition">
         <img
           src={profile?.images[0]?.url ?? null}
